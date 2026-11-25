@@ -258,6 +258,32 @@ h6 {
   color: var(--accent-color);
 }
 
+.header .logo-mark {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 46px;
+  border-radius: 50%;
+  background: var(--kcc-navy);
+  border: 3px solid var(--kcc-yellow);
+  color: var(--kcc-white);
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header .logo-name {
+  margin-left: 10px;
+  color: var(--kcc-navy);
+  font-family: var(--heading-font);
+  font-size: 14px;
+  line-height: 1.08;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
@@ -917,15 +943,38 @@ section,
 }
 
 .hero h2 {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 700;
+  max-width: 760px;
+  margin: 10px 0 0;
+  font-size: 56px;
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
-.hero p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin: 10px 0 0 0;
-  font-size: 24px;
+.hero p:not(.hero-eyebrow) {
+  max-width: 620px;
+  color: color-mix(in srgb, var(--default-color), transparent 8%);
+  margin: 18px 0 0;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--kcc-yellow);
+  font-family: var(--nav-font);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow span {
+  width: 42px;
+  height: 2px;
+  background: var(--kcc-yellow);
 }
 
 .hero .btn-get-started {
@@ -946,22 +995,98 @@ section,
   border: 2px solid var(--accent-color);
 }
 
+.hero-actions .btn-hero-secondary {
+  color: var(--kcc-white);
+  font-size: 15px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--kcc-yellow);
+  padding: 10px 2px;
+}
+
+.hero-actions .btn-hero-secondary i {
+  margin-left: 6px;
+}
+
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
+  .hero {
+    min-height: 68vh;
   }
 
-  .hero p {
-    font-size: 18px;
+  .hero h2 {
+    font-size: 38px;
+  }
+
+  .hero p:not(.hero-eyebrow) {
+    font-size: 17px;
+  }
+
+  .header .logo-name {
+    display: none;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
   }
 }
 
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about {
+  padding: 100px 0;
+}
+
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image-wrap img {
+  border-radius: 8px;
+}
+
+.about-badge {
+  position: absolute;
+  right: -18px;
+  bottom: 24px;
+  width: 132px;
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--kcc-yellow);
+  color: var(--kcc-navy);
+  box-shadow: 0 12px 30px rgba(16, 30, 77, 0.18);
+}
+
+.about-badge strong {
+  font-family: var(--heading-font);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.about-badge span {
+  max-width: 90px;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.section-kicker {
+  margin: 0 0 10px;
+  color: var(--kcc-gold);
+  font-family: var(--nav-font);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .about .content h3 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.25rem;
+  font-weight: 800;
 }
 
 .about .content ul {
@@ -1018,12 +1143,19 @@ section,
 # Counts Section
 --------------------------------------------------------------*/
 .counts {
-  padding: 25px 0;
+  padding: 18px 0;
+  border-top: 1px solid color-mix(in srgb, var(--kcc-navy), transparent 88%);
+  border-bottom: 1px solid color-mix(in srgb, var(--kcc-navy), transparent 88%);
 }
 
 .counts .stats-item {
-  padding: 30px;
+  padding: 24px;
   width: 100%;
+  border-right: 1px solid color-mix(in srgb, var(--kcc-navy), transparent 88%);
+}
+
+.counts .row > div:last-child .stats-item {
+  border-right: 0;
 }
 
 .counts .stats-item span {
@@ -1045,14 +1177,19 @@ section,
 /*--------------------------------------------------------------
 # Why Us Section
 --------------------------------------------------------------*/
+#why-us {
+  background: #f7f8fb;
+}
+
 .why-us .why-box {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  padding: 30px;
+  color: var(--kcc-white);
+  background: var(--kcc-navy);
+  padding: 36px;
+  border-radius: 8px;
 }
 
 .why-us .why-box h3 {
-  color: var(--contrast-color);
+  color: var(--kcc-white);
   font-weight: 700;
   font-size: 34px;
   margin-bottom: 30px;
@@ -1123,7 +1260,11 @@ section,
 # Features Section
 --------------------------------------------------------------*/
 .features {
-  padding: 10px 0;
+  padding: 30px 0 80px;
+}
+
+.features .section-title {
+  margin-bottom: 34px !important;
 }
 
 .features .features-item {
@@ -1197,6 +1338,33 @@ section,
 
 .courses .course-content h3 a:hover {
   color: var(--accent-color);
+}
+
+.courses .course-item {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.courses .course-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(16, 30, 77, 0.12);
+}
+
+.btn-view-programs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 10px 24px;
+  border: 2px solid var(--kcc-navy);
+  border-radius: 50px;
+  color: var(--kcc-navy);
+  font-weight: 800;
+  transition: 0.25s;
+}
+
+.btn-view-programs:hover {
+  background: var(--kcc-navy);
+  color: var(--kcc-white);
 }
 
 .courses .course-content .category {
